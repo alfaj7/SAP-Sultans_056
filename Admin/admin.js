@@ -2,10 +2,69 @@
 var global_data;
 let baseurl = `https://mock-api-fxby.onrender.com`;
 let Totalsong = document.getElementById("totalsong");
-console.log(global_data);
+// console.log(global_data);
+
+let input_value = document.getElementById("");
+
+// search_form and search song input
+
+let search_form = document.getElementById("search_form");
+
+let song_input = document.getElementById("song_input");
+
+// fetchig the search result and applying debouncing
+
+let timeOut;
+
+async function fetch_data(search) {
+  try {
+    let res = await fetch(
+      `https://mock-api-fxby.onrender.com/songs?name_like=${search}`
+    );
+
+    let search_data = await res.json();
+
+    return search_data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// validting the search result and applying condition
+
+async function validation() {
+  let value = song_input.value;
+  if (value.length < 3) {
+    alert("plaese enter atleast three character");
+    return;
+  }
+
+  let validated_data = await fetch_data(value);
+  show_data(validated_data);
+  console.log(validated_data);
+}
+
+// applying Debouncing
+
+function Debouncing(operation, delay) {
+  if (timeOut) {
+    clearTimeout(timeOut);
+  }
+  timeOut = setTimeout(() => {
+    operation();
+  }, delay);
+}
+
+// applying event listner on searvh input
+
+song_input.addEventListener("input", function () {
+  // console.log(song_input.value);
+
+  Debouncing(validation, 1000);
+});
 
 // fform
-let id = document.getElementById("id");
+// let id = document.getElementById("id");
 let name = document.getElementById("name");
 let songUrl = document.getElementById("songUrl");
 let songposterurl = document.getElementById("song_poster_url");
@@ -17,12 +76,15 @@ let AddButton = document.getElementById("Add");
 let UpdateButton = document.getElementById("Update");
 let GetButton = document.getElementById("Get");
 
-let Idvalue = id.value;
+// let Idvalue = id.value;
 
-let showname = document.getElementById("h3name");
-let showdesc = document.getElementById("desc");
+// let showname = document.getElementById("h3name");
+// let showdesc = document.getElementById("desc");
+
+// https://mock-api-fxby.onrender.com/songs?name=4444
 
 // Getting Number of Products
+
 fetch(`${baseurl}/songs`)
   .then((res) => res.json())
   .then((data) => {
@@ -32,21 +94,6 @@ fetch(`${baseurl}/songs`)
     // console.log(data);
     Totalsong.innerText = data.length;
   });
-
-// async function fetch_data() {
-//   try {
-//     let res = await fetch("https://mock-api-fxby.onrender.com");
-
-//     let data = await res.json();
-//     Totalsong.innerText = data.length;
-
-//     global_data = data;
-//     console.log(global_data);
-//     show_data(data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 
 function show_data(data) {
   // console.log(data);
@@ -71,11 +118,15 @@ function show_data(data) {
     td_language.innerText = ele.language;
 
     let action = document.createElement("td");
+    action.classList.add("action");
 
     let song_delete = document.createElement("button");
-    song_delete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path></svg>`;
+    song_delete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path></svg>`;
+    song_delete.classList.add("action_btn");
+
     let song_update = document.createElement("button");
-    song_update.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>`;
+    song_update.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>`;
+    song_update.classList.add("action_btn");
 
     song_delete.addEventListener("click", function () {
       handle_delete(ele.id);
@@ -103,7 +154,7 @@ function handle_delete(index) {
 
 // update fxn
 
-function handle_update(ele, id) {
+function handle_update(ele) {
   // console.log(index);
   // global_data.splice(index, 1);
   // Totalsong.innerText = global_data.length;
@@ -111,7 +162,7 @@ function handle_update(ele, id) {
 
   openPopup();
 
-  ele.id = id;
+  // ele.id = id;
   name.value = ele.name;
   songUrl.value = ele.songUrl;
   songposterurl.value = ele.songposterurl;
@@ -122,7 +173,7 @@ function handle_update(ele, id) {
 
   UpdateButton.addEventListener("click", () => {
     let obj = {
-      id: id,
+      // id: id,
       name: name.value,
       songUrl: songUrl.value,
       songposterurl: songposterurl.value,
@@ -132,7 +183,7 @@ function handle_update(ele, id) {
       category: category.value,
     };
 
-    fetch(`${baseurl}/songs/${obj.id}`, {
+    fetch(`${baseurl}/songs/${ele.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -165,7 +216,7 @@ function openPopup() {
   Duration.value = "";
   language.value = "";
   category.value = "";
-  id.value = "";
+  // id.value = "";
   var popups = document.getElementsByClassName("popup");
 
   for (var i = 0; i < popups.length; i++) {
@@ -187,7 +238,7 @@ fetch(`${baseurl}/songs`)
 
 AddButton.addEventListener("click", () => {
   let obj = {
-    id: id.value,
+    // id: id.value,
     name: name.value,
     songUrl: songUrl.value,
     songposterurl: songposterurl.value,
@@ -218,6 +269,7 @@ AddButton.addEventListener("click", () => {
 });
 
 //Delete the Song
+
 function handle_delete(id) {
   fetch(`${baseurl}/songs/${id}`, {
     method: "DELETE",

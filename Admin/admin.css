@@ -405,6 +405,29 @@ body {
   right: 0;
   cursor: pointer;
 }
+/* action ,btn delete update */
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+}
+.action_btn {
+  width: 100%;
+  background: var(--light-blue);
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px dashed rgb(4, 4, 69);
+  display: flex;
+  justify-content: center;
+  color: #7693fb;
+  cursor: pointer;
+}
+.action_btn:hover {
+  background-color: #f0f1f3;
+}
 
 .head {
   display: flex;
