@@ -11,6 +11,8 @@
 	<link rel="shortcut icon" href="logo-black.png" type="image/x-icon">
 	<title>Bit Pluse</title>
     <link rel="shortcut icon" href="../Assets/Logo.jpg" type="image/x-icon">
+    
+    <script src="https://kit.fontawesome.com/a617bb882c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -92,7 +94,19 @@
 	
     <!-- Music Section -->
     <div class="music-list" id="music-list"></div>
-    <audio id="audio-player" controls style="display:none;"></audio>
+    <div class="player-popup" id="player-popup">
+        <div class="player-content">
+            <button id="close-button"><i class="fas fa-times"></i></button>
+            <div class="image-container">
+                <img src="" id="popup-bg" alt="Background Image">
+            </div>
+            <div class="controls">
+                <button id="prev-button"><i class="fas fa-backward"></i></button>
+                <audio id="audio-player" controls></audio>
+                <button id="next-button"><i class="fas fa-forward"></i></button>
+            </div>
+        </div>
+    </div>
 
     <!-- Music Section -->
 	<script src="script.js"></script>

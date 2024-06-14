@@ -535,124 +535,154 @@ body {
 
 /* Music Style Start*/
 
-  /* body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 20px;
-} */
+
+
+body {
+  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #FFFFFF;
+  margin: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transition: background 0.5s ease;
+}
 
 .music-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-left: 25rem;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 25rem;
+  padding-top: 5rem;
 }
 
 .song {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: ;
-    width: 250px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    
+  background-color: #575454;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: calc(25% - 10px);
 }
 
 .song:hover {
-    background-color: #333333;
+  transform: scale(1.05);
 }
 
 .song img {
-    width: 200px;
-    height: 150px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
-.song-info h3 {
-    margin: 0;
-    font-size: 1.3rem;
-    text-align: center;
+.song-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.song-info p {
-    margin: 5px 0 0;
-    color: #B3B3B3;
-    text-align: center;
+.player-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s;
 }
 
-#audio-player{
-    margin-left: 35rem;
-    margin-top: 1rem;
-    width: 50rem;
-    background-color: none;
-
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
+
+.player-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+#close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.image-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid transparent;
+  animation: rotate 5s linear infinite;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+      border-color: #ff0000 #00ff00 #0000ff #ff0000;
+  }
+  100% {
+      transform: rotate(360deg);
+      border-color: #ff0000 #00ff00 #0000ff #ff0000;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.controls button:hover {
+  color: #ff0000;
+}
+
+#popup-bg {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 
 /* Music Style End*/
-body {
-    font-family: Arial, sans-serif;
-    background-color:  #183282;;
-    color: #FFFFFF;
-    margin: 0;
-    /* padding: 20px; */
-}
-
-.music-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5rem;
-    margin-left: 22rem;
-}
-
-.song {
-  margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    background-color: #7693fb;
-    width: 250px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    
-    
-}
-
-.song:hover {
-    background-color: #333333;
-}
-
-.song img {
-    width: 200px;
-    height: 150px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.song-info h3 {
-    margin: 0;
-    font-size: 1.3rem;
-    text-align: center;
-}
-
-.song-info p {
-    margin: 5px 0 0;
-    color: #B3B3B3;
-    text-align: center;
-}
-
-#audio-player{
-    margin-left: 35rem;
-    margin-top: 1rem;
-    width: 50rem;
-    background-color: none;
-
-}
