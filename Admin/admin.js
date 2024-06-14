@@ -91,7 +91,7 @@ fetch(`${baseurl}/songs`)
     global_data = data;
     show_data(data);
 
-    // console.log(data);
+    console.log(data);
     Totalsong.innerText = data.length;
   });
 
@@ -104,8 +104,17 @@ function show_data(data) {
   data.forEach((ele, i) => {
     let tr = document.createElement("tr");
 
+    let td_seriel_no = document.createElement("td");
+    td_seriel_no.innerText = i + 1;
+
+    let td_poster = document.createElement("td");
+    td_poster.innerHTML = `<img src="${ele.songposterurl}"/>`;
+
     let td_song_name = document.createElement("td");
     td_song_name.innerText = ele.name;
+
+    let td_category = document.createElement("td");
+    td_category.innerText = ele.category;
 
     let td_duration = document.createElement("td");
     td_duration.innerText = ele.Duration;
@@ -137,8 +146,19 @@ function show_data(data) {
     });
 
     action.append(song_update, song_delete);
-
-    tr.append(td_song_name, td_duration, td_artist, td_language, action);
+    tr.addEventListener("click", function () {
+      updateAudioPlayer(ele.songUrl);
+    });
+    tr.append(
+      td_seriel_no,
+      td_poster,
+      td_song_name,
+      td_category,
+      td_duration,
+      td_artist,
+      td_language,
+      action
+    );
 
     tbody.append(tr);
   });
@@ -230,7 +250,7 @@ function openPopup() {
 
 // Accesing All The elements From Html
 
-fetch(`${baseurl}/songs`)
+fetch(`${baseurl}`)
   .then((res) => res.json())
   .then((data) => {
     Totalsong.innerText = data.length;
@@ -250,7 +270,7 @@ AddButton.addEventListener("click", () => {
 
   console.log(obj);
 
-  fetch(`${baseurl}/songs`, {
+  fetch(`https://mock-api-fxby.onrender.com/songs`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -289,3 +309,26 @@ function handle_delete(id) {
       console.log(error);
     });
 }
+
+function updateAudioPlayer(songUrl) {
+  const audioPlayer = document.querySelector("audio");
+  audioPlayer.src = songUrl;
+  audioPlayer.play();
+  console.log(audioPlayer.src);
+}
+
+// function updateAudioPlayer(songUrl) {
+//   console.log("Updating audio player with URL:", songUrl); // Debugging
+//   const audioPlayer = document.querySelector("audio");
+//   const audioSource = audioPlayer.querySelector("source");
+//   audioSource.src = songUrl;
+
+//   audioPlayer
+//     .play()
+//     .then(() => {
+//       console.log("Audio is playing");
+//     })
+//     .catch((error) => {
+//       console.error("Error playing audio:", error);
+//     });
+// }
