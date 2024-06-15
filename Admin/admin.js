@@ -1,6 +1,6 @@
 // Accesing All The elements From Html
 var global_data;
-let baseurl = `https://mock-api-fxby.onrender.com`;
+let baseurl = "https://mock-api-fxby.onrender.com";
 let Totalsong = document.getElementById("totalsong");
 // console.log(global_data);
 
@@ -130,11 +130,11 @@ function show_data(data) {
     action.classList.add("action");
 
     let song_delete = document.createElement("button");
-    song_delete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path></svg>`;
+    song_delete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" viewBox="0 0 24 24" style="fill: white;transform: ;msFilter:;"><path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path></svg>`;
     song_delete.classList.add("action_btn");
 
     let song_update = document.createElement("button");
-    song_update.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>`;
+    song_update.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: white;transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>`;
     song_update.classList.add("action_btn");
 
     song_delete.addEventListener("click", function () {
@@ -147,7 +147,7 @@ function show_data(data) {
 
     action.append(song_update, song_delete);
     tr.addEventListener("click", function () {
-      updateAudioPlayer(ele.songUrl);
+      updateAudioPlayer(ele.songUrl, ele.songposterurl);
     });
     tr.append(
       td_seriel_no,
@@ -250,11 +250,11 @@ function openPopup() {
 
 // Accesing All The elements From Html
 
-fetch(`${baseurl}`)
-  .then((res) => res.json())
-  .then((data) => {
-    Totalsong.innerText = data.length;
-  });
+// fetch(`${baseurl}/songs`)
+//   .then((res) => res.json())
+//   .then((abc) => {
+//     Totalsong.innerText = abc.length;
+//   });
 
 AddButton.addEventListener("click", () => {
   let obj = {
@@ -309,26 +309,45 @@ function handle_delete(id) {
       console.log(error);
     });
 }
+//
 
-function updateAudioPlayer(songUrl) {
+function updateAudioPlayer(songUrl, song_poster_url) {
+  var music = document.getElementById("musicplayer");
+  if (music.style.display === "none" || music.style.display === "") {
+    music.style.display = "flex";
+  } else {
+    music.style.display = "none";
+  }
   const audioPlayer = document.querySelector("audio");
+  const dynamicmusicimage = document.getElementById("dynamicmusicimage");
+  dynamicmusicimage.src = song_poster_url;
   audioPlayer.src = songUrl;
   audioPlayer.play();
   console.log(audioPlayer.src);
 }
+function trash() {
+  var music = document.getElementById("musicplayer");
+  if (music.style.display === "none" || music.style.display === "") {
+    music.style.display = "flex";
+  } else {
+    music.style.display = "none";
+  }
+  const audioPlayer = document.querySelector("audio");
+  audioPlayer.src = songUrl;
+  audioPlayer.stop();
+}
 
-// function updateAudioPlayer(songUrl) {
-//   console.log("Updating audio player with URL:", songUrl); // Debugging
-//   const audioPlayer = document.querySelector("audio");
-//   const audioSource = audioPlayer.querySelector("source");
-//   audioSource.src = songUrl;
+function openMusicPlayer() {
+  // console.log("addd");
 
-//   audioPlayer
-//     .play()
-//     .then(() => {
-//       console.log("Audio is playing");
-//     })
-//     .catch((error) => {
-//       console.error("Error playing audio:", error);
-//     });
-// }
+  // id.value = "";
+  var music = document.getElementById("musicplayer");
+
+  for (var i = 0; i < music.length; i++) {
+    if (music[i].style.display === "none" || music[i].style.display === "") {
+      music[i].style.display = "flex";
+    } else {
+      music[i].style.display = "none";
+    }
+  }
+}
