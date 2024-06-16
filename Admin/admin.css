@@ -24,7 +24,7 @@ li {
   --light-blue: #cfe8ff;
   --grey: #eee;
   --dark-grey: #aaaaaa;
-  --dark: #342e37;
+  --dark: #000000;
   --red: #db504a;
   --yellow: #ffce26;
   --light-yellow: #fff2c6;
@@ -47,6 +47,66 @@ body {
   overflow-x: hidden;
 }
 
+#musicplayer {
+  background: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+
+  width: 100%;
+  height: 100vh;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust the color and transparency as needed */
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+}
+.playercontainer {
+  border: 2px solid purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  /* height: 400px; */
+  border-radius: 10px 10px 10px 10px;
+  /* overflow: hidden; */
+  position: relative;
+}
+.image_container {
+  /* overflow: hidden; */
+  /* background-color: green; */
+  height: 400px;
+  border-radius: 10px 10px 10px 10px;
+}
+.playercontainer img {
+  /* width: 100%; */
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+.trashmusic {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: black;
+  cursor: pointer;
+  border-radius: 99999px;
+}
+.audio_container {
+  background-color: #27ae60;
+}
+#audioPlayer {
+  width: 100%;
+  border-radius: 0;
+  /* background: red; */
+}
+
 /* SIDEBAR */
 #sidebar {
   position: fixed;
@@ -61,7 +121,38 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   /* background-color: red; */
-  background-color: #7693fb;
+  background-image: linear-gradient(
+    to right,
+    #41295a 0%,
+    #2f0743 51%,
+    #41295a 100%
+  );
+  background-size: 200% auto;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #41295a 0%,
+    #2f0743 51%,
+    #41295a 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 #sidebar .Admin {
@@ -78,7 +169,14 @@ body {
   z-index: 500;
   padding-bottom: 20px;
   box-sizing: content-box;
-  background-color: #7693fb;
+  /* background-color: #7693fb; */
+  background-image: linear-gradient(
+    to right,
+    #41295a 0%,
+    #2f0743 51%,
+    #41295a 100%
+  );
+  background-size: 200% auto;
 }
 .text {
   color: black;
@@ -107,6 +205,13 @@ body {
   background: #aec2ff;
   position: relative;
   border-radius: 48px 0 0 48px;
+  background-image: linear-gradient(
+    to left,
+    #77339b 0%,
+    #77339b 51%,
+    #77339b 100%
+  );
+  /* background-size: 200% auto; */
 }
 #sidebar .side-menu li.active::before {
   content: "";
@@ -116,7 +221,8 @@ body {
   border-radius: 50%;
   top: -40px;
   right: 0;
-  box-shadow: 20px 20px 0 #aec2ff;
+  box-shadow: 20px 20px 0 #77339b;
+
   z-index: -1;
 }
 #sidebar .side-menu li.active::after {
@@ -190,6 +296,13 @@ body {
   left: 0;
   z-index: 1000;
   background-color: #7693fb;
+  background-image: linear-gradient(
+    to right,
+    #2f0743 51%,
+    #41295a 0%,
+    #41295a 100%
+  );
+  background-size: 200%;
 }
 #content nav::before {
   content: "";
@@ -199,14 +312,14 @@ body {
   bottom: -40px;
   left: 0;
   border-radius: 50%;
-  box-shadow: -20px -20px 0 #7693fb;
+  box-shadow: -20px -20px 0 #2f0743;
 }
 #content nav a {
-  color: var(--dark);
+  color: var(--light);
 }
 #content nav .bx.bx-menu {
   cursor: pointer;
-  color: var(--dark);
+  color: var(--light);
 }
 #content nav .nav-link {
   font-size: 16px;
@@ -243,6 +356,14 @@ body {
   justify-content: center;
   align-items: center;
   background: #183282;
+  background-image: linear-gradient(
+    to right,
+    #ae7cc8 51%,
+    #ae7cc8 0%,
+    #ae7cc8 100%
+  );
+  background-size: 200% auto;
+
   color: var(--light);
   font-size: 18px;
   border: none;
@@ -259,7 +380,12 @@ body {
   font-family: var(--poppins);
   max-height: calc(100vh - 56px);
   overflow-y: auto;
-  background-color: #aec2ff;
+  background-image: linear-gradient(
+    to left,
+    #5e287b 0%,
+    #9c69ba 51%,
+    #77339b 100%
+  );
 }
 #content main .head-title {
   display: flex;
@@ -272,7 +398,7 @@ body {
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: var(--dark);
+  color: var(--light);
 }
 
 #content main .box-info {
@@ -288,6 +414,13 @@ body {
   display: flex;
   align-items: center;
   grid-gap: 24px;
+  background-image: linear-gradient(
+    to right,
+    #2f0743 51%,
+    #41295a 0%,
+    #41295a 100%
+  );
+  background-size: 200%;
 }
 #content main .box-info li .bx {
   width: 80px;
@@ -299,24 +432,32 @@ body {
   align-items: center;
 }
 #content main .box-info li:nth-child(1) .bx {
-  background: var(--light-blue);
-  color: var(--blue);
+  background: var(--light);
+  color: var(--orange);
 }
 #content main .box-info li:nth-child(2) .bx {
-  background: var(--light-yellow);
-  color: var(--yellow);
+  background: var(--light);
+  color: var(--orange);
+}
+.remove {
+  background: transparent !important;
+  padding: 0px;
+  height: 10px !important;
 }
 #content main .box-info li:nth-child(3) .bx {
-  background: var(--light-blue);
+  background: var(--light);
   color: var(--orange);
 }
 #content main .box-info li .text h3 {
   font-size: 20px;
   font-weight: 600;
-  color: var(--dark);
+  color: var(--light);
 }
 #content main .box-info li .text p {
   color: var(--dark);
+}
+#totalsong {
+  color: white;
 }
 
 #content main .table-data {
@@ -366,9 +507,6 @@ body {
   padding: 16px 0;
 }
 #content main .table-data .order table tr td:first-child {
-  display: flex;
-  align-items: center;
-  grid-gap: 12px;
   padding-left: 6px;
 }
 #content main .table-data .order table td img {
@@ -379,6 +517,7 @@ body {
 }
 #content main .table-data .order table tbody tr:hover {
   background: var(--grey);
+  /* cursor: pointer; */
 }
 #content main .table-data .order table tr td .status {
   font-size: 10px;
@@ -394,6 +533,31 @@ body {
   left: 0;
   z-index: 99999;
   width: 100%;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust the color and transparency as needed */
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  height: 100vh;
+}
+
+.AddPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 100%;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust the color and transparency as needed */
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  height: 100vh;
 }
 .cross {
   position: relative;
@@ -405,6 +569,30 @@ body {
   right: 0;
   cursor: pointer;
 }
+/* action ,btn delete update */
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+
+  gap: 10px;
+}
+.action_btn {
+  width: 100%;
+  background: #9864b7;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px dashed rgb(4, 4, 69);
+  display: flex;
+  justify-content: center;
+  color: #7693fb;
+  cursor: pointer;
+}
+.action_btn:hover {
+  background-color: #2f0743;
+}
 
 .head {
   display: flex;
@@ -412,14 +600,9 @@ body {
   justify-content: center;
   grid-gap: 16px;
   margin-bottom: 24px;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.3
-  ); /* Adjust the color and transparency as needed */
-  backdrop-filter: blur(10px); /* Apply the blur effect */
+
   width: 100%;
+  /* height: 100vh; */
 }
 
 #msform {
@@ -453,23 +636,59 @@ body {
   font-family: montserrat;
   color: #2c3e50;
   font-size: 18px;
+  outline-color: #6441a5;
 }
 /*buttons*/
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #6441a5 0%,
+    #2a0845 51%,
+    #6441a5 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 #msform .action-button {
-  width: 100px;
-  background: #27ae60;
+  width: 100%;
+
+  background-image: linear-gradient(
+    to right,
+    #6441a5 0%,
+    #2a0845 51%,
+    #6441a5 100%
+  );
+  background-size: 200% auto;
+  transition: 0.5s;
   font-weight: bold;
   color: white;
   border: 0 none;
   border-radius: 1px;
   cursor: pointer;
-  padding: 10px;
-  margin: 10px 5px;
+  padding: 15px;
   text-decoration: none;
   font-size: 18px;
 }
 #msform .action-button:hover {
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 /*headings*/
 .fs-title {
@@ -482,15 +701,6 @@ body {
 /* CONTENT */
 
 @media screen and (max-width: 580px) {
-  #sidebar {
-    width: 200px;
-  }
-
-  #content {
-    width: calc(100% - 60px);
-    left: 200px;
-  }
-
   #content nav .nav-link {
     display: none;
   }
@@ -524,11 +734,59 @@ body {
   #content main .box-info {
     grid-template-columns: 1fr;
   }
+}
 
-  #content main .table-data .head {
-    min-width: 420px;
-  }
-  #content main .table-data .order table {
-    min-width: 420px;
-  }
+.input-container {
+  position: relative;
+  width: 320px;
+  margin-top: 5px;
+}
+
+.input-container label {
+  position: absolute;
+  top: 45%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #333;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-container input {
+  width: 100%;
+  /* height: 30px; */
+  font-size: 14px;
+  color: #333;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: 0;
+  font-size: 16px;
+  background: #fff;
+  color: black;
+}
+
+.enhancer {
+  height: 60px;
+  object-fit: fill;
+  padding-bottom: 300px;
+}
+#enhancer {
+  height: 60px;
+  overflow: hidden;
+}
+.play {
+  /* font-size: 40px; */
+  border: none;
+  background: none;
+  /* margin-top: 10px; */
+  margin-left: 0px;
+  cursor: pointer;
 }

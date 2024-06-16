@@ -1,219 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Boxicons -->
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<!-- My CSS -->
-	<link rel="stylesheet" href="admin.css">
-	<link rel="shortcut icon" href="logo-black.png" type="image/x-icon">
-	<title>Admin Page</title>
-</head>
-<body>
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./admin.css" />
+    <link rel="shortcut icon" href="logo-black.png" type="image/x-icon" />
+    <title>Admin Page</title>
+  </head>
+  <body>
+    <!-- SIDEBAR START-->
+    <section id="sidebar">
+      <a href="admin.html" class="Admin">
+        <i class="bx bxs-crown"></i>
+        <span class="text">Admin</span>
+      </a>
+      <ul class="side-menu top">
+        <li class="active">
+          <a href="admin.html">
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="bx"
+              >
+                <rect width="7" height="9" x="3" y="3" rx="1" />
+                <rect width="7" height="5" x="14" y="3" rx="1" />
+                <rect width="7" height="9" x="14" y="12" rx="1" />
+                <rect width="7" height="5" x="3" y="16" rx="1" />
+              </svg>
+            </span>
 
-
-	<!-- SIDEBAR START-->
-	<section id="sidebar">
-        <a href="admin.html" class="Admin">
-            <i class='bx bxs-crown'></i>
-            <span class="text">Admin</span>
-        </a>
-        <ul class="side-menu top">
-            <li>
-                <a href="Admin.html">
-                    <span>
-
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="bx"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
-                </span>
-
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="user.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="bx"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span class="text">Users</span>
-                </a>
-            </li>
-           
-            <li class="active">
-                <a href="add.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="bx"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                    <span class="text">Add / Update</span>
-                </a>
-            </li>
-           
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="/index.html" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
-                    <span class="text">Logout</span>
-                </a>
-            </li>
-        </ul>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="user.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="bx"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span class="text">Users</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="side-menu">
+        <li>
+          <a href="/login.html" class="logout">
+            <i class="bx bx-log-out"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
     </section>
-	<!-- SIDEBAR END -->
+    <!-- SIDEBAR END -->
 
+    <!-- CONTENT PART START-->
+    <section id="content">
+      <!-- NAVBAR START-->
+      <nav>
+        <i class="bx bx-menu"></i>
+        <a href="#" class="nav-link">Dashboard</a>
+        <form action="#" id="search_form">
+          <div class="form-input">
+            <input type="text" placeholder="Search songs... " id="song_input" />
+            <button type="submit" class="search-btn">
+              <i class="bx bx-search"></i>
+            </button>
+          </div>
+        </form>
+      </nav>
+      <!-- NAVBAR END-->
 
+      <!-- MAIN PART START-->
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Songs</h1>
+          </div>
+        </div>
 
-	<!-- CONTENT PART START-->
-	<section id="content">
-		<!-- NAVBAR START-->
-		<nav>
-			<i class='bx bx-menu'></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
-			</form>
-		</nav>
-		<!-- NAVBAR END-->
+        <ul class="box-info">
+          <li>
+            <i class="bx bxs-music bx-lg"> </i>
 
-		<!-- MAIN PART START-->
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>Songs </h1>
-				</div>
-			</div>
+            <span class="text">
+              <h3>Total songs</h3>
+              <h4 id="totalsong"></h4>
+            </span>
+          </li>
+          <li>
+            <i class="bx bxs-album bx-border"></i>
+            <span class="text">
+              <h3>Album</h3>
+              <p></p>
+            </span>
+          </li>
+          <li>
+            <i class="bx bxs-music bx-fade-right"></i>
+            <span class="text">
+              <span
+                onclick="AddPopup()"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  gap: 10px;
+                  cursor: pointer;
+                "
+              >
+                <h3>Add songs</h3>
+                <i class="bx bx-plus-circle remove"></i>
+              </span>
+            </span>
+            <i class="bx bxs-music bx-fade-left"></i>
+          </li>
+        </ul>
 
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-music bx-lg' >
+        <div class="table-data">
+          <div class="order">
+            <div class="head">
+              <h3>Songs</h3>
+              <i class="bx bx-search"></i>
+              <i class="bx bx-filter"></i>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Image</th>
 
-					</i>
+                  <th>Name</th>
+                  <th>category</th>
+                  <th>Duration</th>
+                  <th>Singer/Artist</th>
+                  <th>Language</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
 
-					
-					<span class="text">
-						<h3>Total songs</h3>
-						<h4 id="totalsong"></h4>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-album bx-border'></i>
-					<span class="text">
-						<h3>Album</h3>
-						<p></p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-music bx-fade-right'></i>
-					<span class="text">
-						<span onclick="openPopup()" style="display: flex;flex-direction: column; align-items: center; gap: 10px;cursor: pointer;">
+      <div class="popup">
+        <div class="head">
+          <form id="msform">
+            <!-- fieldsets -->
+            <fieldset class="cross">
+              <span onclick="openPopup()" class="close">
+                <i
+                  class="bx bx-x-circle bx-burst bx-md"
+                  style="color: #ff0505"
+                ></i>
+              </span>
+              <h2 class="fs-title">Update Song</h2>
+              <!-- Add input fields with labels -->
+              <div class="input-container">
+                <input type="text" name="name" id="name" required />
+                <label for="name">Song Name</label>
+              </div>
 
-							<h3>Add songs</h3> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class=""><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-						</span>
-						
-					</span>
-					<i class='bx bxs-music bx-fade-left'></i>
-				</li>
-			</ul>
+              <div class="input-container">
+                <input type="url" name="songUrl" id="songUrl" required />
+                <label for="songUrl">Song URL</label>
+              </div>
 
+              <div class="input-container">
+                <input
+                  type="url"
+                  name="song_poster_url"
+                  id="song_poster_url"
+                  required
+                />
+                <label for="song_poster_url">Song Poster URL</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="artist" id="artist" required />
+                <label for="artist">Artist Name</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="duration" id="duration" required />
+                <label for="duration">Duration</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="language" id="language" required />
+                <label for="language">Language</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="category" id="category" required />
+                <label for="category">Category</label>
+              </div>
+              <input
+                type="button"
+                name="Update"
+                class="next action-button"
+                value="Update"
+                id="Update"
+              />
+            </fieldset>
+          </form>
+        </div>
+      </div>
 
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Songs</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Duration </th>
-								<th>Singer/Artist</th>
-								<th>Language</th>
-								<th>Action</th>
+      <div class="AddPopup">
+        <div class="head">
+          <form id="msform">
+            <!-- fieldsets -->
+            <fieldset class="cross">
+              <span onclick="CloseAddpopup()" class="close">
+                <i
+                  class="bx bx-x-circle bx-burst bx-md"
+                  style="color: #ff0505"
+                ></i>
+              </span>
+              <h2 class="fs-title">Add Songs</h2>
+              <!-- Add input fields with labels -->
+              <div class="input-container">
+                <input type="text" name="name" id="name" required />
+                <label for="name">Song Name</label>
+              </div>
 
-							</tr>
-						</thead>
-						<tbody>
-							<!-- <tr>
-								<td>
-								xxxx
-								</td>
-								<td>xxxx</td>
-								<td>xxxx</td>
-								<td>xxxx</td>
-								<td><button>Delete</button></td>
-							</tr> -->
-							<!-- <tr>
-								<td>
-									xxxx
-									</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td><button>Delete</button></td>
-							</tr>
-							<tr>
-								<td>
-									xxxx
-									</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td><button>Delete</button></td>
-							</tr>
-							<tr>
-								<td>
-									xxxx
-									</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td><button>Delete</button></td>
-							</tr>
-							<tr>
-								<td>
-									xxxx
-									</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td>xxxx</td>
-									<td><button>Delete</button></td>
-							</tr> -->
-						</tbody>
-					</table>
-				</div>	
-		</main>  
-		<!-- MAIN PART END -->
+              <div class="input-container">
+                <input type="url" name="songUrl" id="songUrl" required />
+                <label for="songUrl">Song URL</label>
+              </div>
 
+              <div class="input-container">
+                <input
+                  type="url"
+                  name="song_poster_url"
+                  id="song_poster_url"
+                  required
+                />
+                <label for="song_poster_url">Song Poster URL</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="artist" id="artist" required />
+                <label for="artist">Artist Name</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="duration" id="duration" required />
+                <label for="duration">Duration</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="language" id="language" required />
+                <label for="language">Language</label>
+              </div>
+              <div class="input-container">
+                <input type="text" name="category" id="category" required />
+                <label for="category">Category</label>
+              </div>
+              <input
+                type="button"
+                name="Add"
+                class="next action-button"
+                value="Add"
+                id="Add"
+                required
+              />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div id="musicplayer">
+      <div class="playercontainer">
+        <div class="image_container"><img id="dynamicmusicimage" alt="" /></div>
+        <!-- <div class="audio_container"> -->
+        <div id="enhancer">
+          <img
+            class="enhancer"
+            src="https://media1.tenor.com/m/b8o4QL3NxV4AAAAC/sound-wave-waves.gif"
+            alt=""
+          />
+        </div>
 
+        <audio controls id="audioPlayer">
+          <source src="" type="audio/mp3" />
+        </audio>
+        <!-- </div> -->
 
-		<div class="popup">
-			<div class="head">
-				<form id="msform">
-					<!-- fieldsets -->
-					<fieldset class="cross">
-						<span onclick="openPopup()" class="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M10 6.5C10 4.57 8.43 3 6.5 3S3 4.57 3 6.5 4.57 10 6.5 10a3.45 3.45 0 0 0 1.613-.413l2.357 2.528-2.318 2.318A3.46 3.46 0 0 0 6.5 14C4.57 14 3 15.57 3 17.5S4.57 21 6.5 21s3.5-1.57 3.5-3.5c0-.601-.166-1.158-.434-1.652l2.269-2.268L17 19.121a3 3 0 0 0 2.121.879H22L9.35 8.518c.406-.572.65-1.265.65-2.018zM6.5 8C5.673 8 5 7.327 5 6.5S5.673 5 6.5 5 8 5.673 8 6.5 7.327 8 6.5 8zm0 11c-.827 0-1.5-.673-1.5-1.5S5.673 16 6.5 16s1.5.673 1.5 1.5S7.327 19 6.5 19z"></path><path d="m17 4.879-3.707 4.414 1.414 1.414L22 4h-2.879A3 3 0 0 0 17 4.879z"></path></svg></span>
-					  <h2 class="fs-title">Add/Update Songs</h2>
-					  <input type="number" name="id" placeholder="Id" id="id"/>
-					  <input type="text" name="name" placeholder="Song Name" id="name"/>
-					  <input type="url" name="songUrl" placeholder="songUrl" id="songUrl"/>
-					  <input type="url" name="song_poster_url" placeholder="song poster url" id="song_poster_url"/>
-					  <input type="text" name="artist" placeholder="Artist name" id="artist"/>
-					  <input type="text" name="duration" placeholder="Duration" id="duration"/>
-					  <input type="text" name="language" placeholder="language" id="language"/>
-					  <input type="text" name="category" placeholder="category" id="category"/>
-					  <input type="button" name="Add" class="next action-button" value="Add" id="Add"/>
-					  <!-- <input type="button" name="Get" class="next action-button" value="Get" id="Get"/> -->
-					  <input type="button" name="Update" class="next action-button" value="Update" id="Update"/>
-					  <!-- <input onclick="openPopup()" type="button" name="close" class="next action-button" value="close" id="close"/> -->
-					</fieldset>
-				  </form>
-			</div>
-		</div>
-	</section>
-	<!-- CONTENT PART END -->
-	
+        <span class="trashmusic" onclick="trash()">
+          <i class="bx bx-x-circle bx-burst bx-md" style="color: #ff0505"></i>
+        </span>
+      </div>
+    </div>
+    <!-- CONTENT PART END -->
 
-	<script src="admin.js"></script>
-</body>
+    <script src="admin.js"></script>
+  </body>
 </html>
