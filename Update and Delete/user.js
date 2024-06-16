@@ -46,14 +46,14 @@ function show_data(data) {
     td_email.innerText = ele.email;
 
     let td_mobile = document.createElement("td");
-    td_mobile.innerText = "+91" + " " + ele.mobile;
+    td_mobile.innerText = "+91 " + ele.mobile;
 
     let td_actions = document.createElement("td");
 
     let deleteIcon = document.createElement("i");
     deleteIcon.className = "fas fa-trash";
     deleteIcon.style.cursor = "pointer";
-    deleteIcon.onclick = function() {
+    deleteIcon.onclick = function () {
       deleteRow(ele.id);
     };
 
@@ -61,8 +61,8 @@ function show_data(data) {
     updateIcon.className = "fas fa-edit";
     updateIcon.style.cursor = "pointer";
     updateIcon.style.marginLeft = "10px"; // Add some space between the icons
-    updateIcon.onclick = function() {
-      updateRow(ele.id);
+    updateIcon.onclick = function () {
+      openUpdateModal(ele.id);
     };
 
     td_actions.append(deleteIcon, updateIcon);
@@ -85,37 +85,62 @@ async function deleteRow(id) {
   }
 }
 
-async function updateRow(id) {
-  try {
-    // Prompt the user for new data
-    let newUsername = prompt("Enter new username:");
-    let newGender = prompt("Enter new gender:");
-    let newEmail = prompt("Enter new email:");
-    let newMobile = prompt("Enter new mobile:");
+function openUpdateModal(id) {
+  const modal = document.getElementById("updateModal");
+  const span = document.getElementsByClassName("close")[0];
 
-    let updatedUser = {
-      username: newUsername,
-      gender: newGender,
-      email: newEmail,
-      mobile: newMobile,
-    };
+  fetch(`${API_URL}/${id}`)
+    .then(response => response.json())
+    .then(user => {
+      document.getElementById("userId").value = user.id;
+      document.getElementById("username").value = user.username;
+      document.getElementById("gender").value = user.gender;
+      document.getElementById("email").value = user.email;
+      document.getElementById("mobile").value = user.mobile;
+      modal.style.display = "block";
+    })
+    .catch(error => console.error("Error fetching user data:", error));
 
-    await fetch(`${API_URL}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedUser),
-    });
-    fetchData(); // Refresh the table data
-    console.log("Updated row:", id);
-  } catch (error) {
-    console.error("Error updating row:", error);
-  }
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 }
+
+document.getElementById("updateForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const id = document.getElementById("userId").value;
+  const updatedUser = {
+    username: document.getElementById("username").value,
+    gender: document.getElementById("gender").value,
+    email: document.getElementById("email").value,
+    mobile: document.getElementById("mobile").value,
+  };
+
+  fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedUser),
+  })
+    .then(response => response.json())
+    .then(data => {
+      alert("User updated successfully!");
+      document.getElementById("updateModal").style.display = "none";
+      fetchData(); // Refresh the table data
+    })
+    .catch(error => console.error("Error updating user:", error));
+});
 
 // Initial fetching of the data
 fetchData();
+
 
   
   
