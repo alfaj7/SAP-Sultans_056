@@ -12,12 +12,17 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(#7693fb, #183282);
+
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #53346d 25%,
+    #53346d 50%,
+    #53346d 75%,
+    #000000 100%
+  );
   /* background: linear-gradient(rgb(92, 88, 88), black); */
   /* background-image: url(https://imgs.search.brave.com/3CcBUuQdRhyS3zRdSLLE-gDN5-kca2AD9MseWu63lT0/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9wbHVz/LnVuc3BsYXNoLmNv/bS9wcmVtaXVtX3Bo/b3RvLTE2ODYyMDgy/MTkwMzgtNjY0OGQw/ZjJmMGE4P3E9ODAm/dz0xMDAwJmF1dG89/Zm9ybWF0JmZpdD1j/cm9wJml4bGliPXJi/LTQuMC4zJml4aWQ9/TTN3eE1qQTNmREI4/TUh4elpXRnlZMmg4/Tlh4OFluVmlZbXhs/ZkdWdWZEQjhmREI4/Zkh3dw.jpeg); */
-  overflow: hidden;
-  /* background-repeat: no-repeat;
-  background-size: cover; */
 }
 
 .wrapper {
@@ -39,6 +44,11 @@ body {
   /* background: linear-gradient(black, rgb(92, 88, 88)); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   /* background-image: url(https://imgs.search.brave.com/epPH0hVDhMeQ7U2L2lYHGftd7N_JzYHExIxmXeCkNlM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/Mzk0NjEyMzc4MTgt/M2U3ZjUxZmYwNDY3/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRoOGZH/SjFZbUpzWlhOOFpX/NThNSHg4TUh4OGZE/QT0.jpeg); */
+}
+#gender {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .wrapper.animate-signUp .form-wrapper.sign-in {
@@ -106,7 +116,7 @@ body {
 
 h2 {
   font-size: 30px;
-  color: #555;
+  color: #461160;
   text-align: center;
 }
 
@@ -153,7 +163,13 @@ h2 {
   left: 0;
   width: 100%;
   height: 40px;
-  background: linear-gradient(to right, #7693fb, #183282);
+  background-image: linear-gradient(
+    to right,
+    #6441a5 0%,
+    #2a0845 51%,
+    #6441a5 100%
+  );
+  background-size: 200% auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   font-size: 16px;
   color: #fff;
@@ -162,6 +178,12 @@ h2 {
   border-radius: 5px;
   border: none;
   outline: none;
+  transition: 0.5s;
+}
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .sign-link {

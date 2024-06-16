@@ -21,6 +21,12 @@ button {
   background: #183282;
   align-items: center;
   justify-content: space-between;
+  background-image: linear-gradient(
+    to right,
+    #2a0845 0%,
+    #2a0845 51%,
+    #2a0845 100%
+  );
 }
 .navbar a {
   text-decoration: none;
@@ -43,18 +49,49 @@ button {
 .nav-menu a {
   padding: 10px 20px;
   border-radius: 4px;
+
+  transition: 0.5s;
+  background-size: 200% auto;
 }
 .nav-menu a:hover {
-  background: linear-gradient(45deg, #7cb4fe, #529cfc);
-  background: linear-gradient(-45deg, #ff593c, #fe8d3a);
+  color: #fff;
+  text-decoration: none;
+  background-position: right center;
+  background-image: linear-gradient(
+    to right,
+    #6441a5 0%,
+    #2a0845 51%,
+    #6441a5 100%
+  );
 }
 
-#logout {
-  background: #183282;
-  color: #ffffff;
+#logout,
+#login {
+  padding: 10px 20px;
+  border-radius: 4px;
+  /* background-color: red; */
+
+  background: none;
   border: none;
-  font-weight: 600;
-  font-size: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.5s;
+}
+
+#logout:hover,
+#login:hover {
+  transition: 0.5s;
+  /* color: #fff; */
+  text-decoration: none;
+  background-size: 200% auto;
+  background-position: right center;
+  background-image: linear-gradient(
+    to right,
+    #6441a5 0%,
+    #2a0845 51%,
+    #6441a5 100%
+  );
 }
 
 /* research */

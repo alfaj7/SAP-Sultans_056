@@ -16,8 +16,8 @@ function addNavbarToPage() {
   } else {
     loginSectionHTML = `
             <a href="login.html" class="login-nav-btn flex-div">
-                <i class="fa-solid fa-box-open"></i>
-                <span>Login</span>
+                
+                <span id= "login">Login</span>
             </a>
         `;
   }
@@ -33,10 +33,7 @@ function addNavbarToPage() {
     <div class="login-nav-cont">
         <div id="search-data-div"></div>
         ${loginSectionHTML} <!-- Here the loginSectionHTML variable is used -->
-        <div class="flex-div">
-            <img src="assets/man.png" alt="">
-            <span class="Name"></span>
-        </div>
+        
         <i class="fa-solid fa-bars close" id="nav-toggle"></i>
     </div>`;
 }
@@ -44,7 +41,7 @@ function addNavbarToPage() {
 function logout() {
   localStorage.setItem("isLoggedIn", "false");
   localStorage.setItem("currentUser", "");
-  window.location.reload();
+  window.location.href = "login.html";
 }
 
 addNavbarToPage();

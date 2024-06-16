@@ -137,6 +137,15 @@ function show_data(data) {
     song_update.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: white;transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>`;
     song_update.classList.add("action_btn");
 
+    let play_btn = document.createElement("button");
+    play_btn.innerHTML = `<i class='bx bx-play-circle bx-spin bx-sm' style='color:#0be743'  ></i>`;
+    // play_btn.classList.add("action_btn");
+    play_btn.classList.add("play");
+
+    play_btn.addEventListener("click", function () {
+      openMusicPlayer(ele.songUrl, ele.songposterurl);
+    });
+
     song_delete.addEventListener("click", function () {
       handle_delete(ele.id);
     });
@@ -145,10 +154,12 @@ function show_data(data) {
       handle_update(ele, ele.id);
     });
 
-    action.append(song_update, song_delete);
-    tr.addEventListener("click", function () {
-      updateAudioPlayer(ele.songUrl, ele.songposterurl);
-    });
+    action.append(play_btn, song_update, song_delete);
+
+    // applying function on tr
+    // tr.addEventListener("click", function () {
+    //   updateAudioPlayer(ele.songUrl, ele.songposterurl);
+    // });
     tr.append(
       td_seriel_no,
       td_poster,
@@ -237,6 +248,9 @@ function openPopup() {
   language.value = "";
   category.value = "";
   // id.value = "";
+
+  var music = document.getElementById("Add");
+
   var popups = document.getElementsByClassName("popup");
 
   for (var i = 0; i < popups.length; i++) {
@@ -256,6 +270,17 @@ function openPopup() {
 //     Totalsong.innerText = abc.length;
 //   });
 
+function AddPopup() {
+  var popups = document.getElementsByClassName("AddPopup");
+
+  for (var i = 0; i < popups.length; i++) {
+    if (popups[i].style.display === "none" || popups[i].style.display === "") {
+      popups[i].style.display = "block";
+    } else {
+      popups[i].style.display = "none";
+    }
+  }
+}
 AddButton.addEventListener("click", () => {
   let obj = {
     // id: id.value,
@@ -283,10 +308,21 @@ AddButton.addEventListener("click", () => {
     .then(() => {
       // global_data.push(data); // Add new song to global_data
       alert("Song Added Succesfully");
-      openPopup();
       window.location.reload();
     });
 });
+
+function CloseAddpopup() {
+  var popups = document.getElementsByClassName("AddPopup");
+
+  for (var i = 0; i < popups.length; i++) {
+    if (popups[i].style.display === "none" || popups[i].style.display === "") {
+      popups[i].style.display = "block";
+    } else {
+      popups[i].style.display = "none";
+    }
+  }
+}
 
 //Delete the Song
 
@@ -311,20 +347,15 @@ function handle_delete(id) {
 }
 //
 
-function updateAudioPlayer(songUrl, song_poster_url) {
-  var music = document.getElementById("musicplayer");
-  if (music.style.display === "none" || music.style.display === "") {
-    music.style.display = "flex";
-  } else {
-    music.style.display = "none";
-  }
-  const audioPlayer = document.querySelector("audio");
-  const dynamicmusicimage = document.getElementById("dynamicmusicimage");
-  dynamicmusicimage.src = song_poster_url;
-  audioPlayer.src = songUrl;
-  audioPlayer.play();
-  console.log(audioPlayer.src);
-}
+// function updateAudioPlayer(songUrl, song_poster_url) {
+//   // var music = document.getElementById("musicplayer");
+//   // if (music.style.display === "none" || music.style.display === "") {
+//   //   music.style.display = "flex";
+//   // } else {
+//   //   music.style.display = "none";
+//   // }
+
+// }
 function trash() {
   var music = document.getElementById("musicplayer");
   if (music.style.display === "none" || music.style.display === "") {
@@ -337,17 +368,20 @@ function trash() {
   audioPlayer.stop();
 }
 
-function openMusicPlayer() {
+function openMusicPlayer(songUrl, songposterurl) {
   // console.log("addd");
 
-  // id.value = "";
   var music = document.getElementById("musicplayer");
-
-  for (var i = 0; i < music.length; i++) {
-    if (music[i].style.display === "none" || music[i].style.display === "") {
-      music[i].style.display = "flex";
-    } else {
-      music[i].style.display = "none";
-    }
+  if (music.style.display === "none" || music.style.display === "") {
+    music.style.display = "flex";
+  } else {
+    music.style.display = "none";
   }
+
+  const audioPlayer = document.querySelector("audio");
+  const dynamicmusicimage = document.getElementById("dynamicmusicimage");
+  dynamicmusicimage.src = songposterurl;
+  audioPlayer.src = songUrl;
+  audioPlayer.play();
+  console.log(audioPlayer.src);
 }
