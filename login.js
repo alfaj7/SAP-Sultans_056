@@ -67,7 +67,7 @@ signinForm.addEventListener("submit", async (event) => {
 
       if (password === user.password) {
         // Successful login for regular user
-        window.location.href = "index.html";
+        window.location.href = "main.html";
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("currentUser", user.username);
       } else {
@@ -88,3 +88,4 @@ function togglePassword(passwordInputId) {
     passwordInput.getAttribute("type") === "password" ? "text" : "password";
   passwordInput.setAttribute("type", type);
 }
+
