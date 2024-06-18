@@ -1,7 +1,7 @@
 # SAP-Sultans_056
 
 # Project Title
-    beet-pluse-music
+    beet-pulse-music
 
 ## Introduction
     Embarking on a mission to revolutionize the music streaming landscape, our team has set out to develop a cutting-edge, open-source music streaming application. Leveraging our collective passion for music and technology, we aim to deliver a personalized and immersive listening experience that rivals industry giants like YouTube and Spotify. Our platform will prioritize user engagement through innovative features such as dynamic search, customizable playlists, and a detailed music player, all while ensuring robust performance and user-friendly design. With a strong focus on state management, data persistence, and responsive UI, we are excited to showcase our skills and create a unique space for music lovers worldwide.
@@ -15,7 +15,7 @@ Backend: https://render.com/
 Database: [Json server](https://mock-api-fxby.onrender.com/)
 
 ## Directory Structure
-SAP-SULTANS_056/
+<pre>SAP-SULTANS_056/
 ├─ Admin/
 |   ├─admin.css
 |    ├─admin.html
@@ -24,7 +24,6 @@ SAP-SULTANS_056/
 |    ├─style.css
 |    ├─user.css
 |    ├─user.html
-|    ├─user.js
 ├─ Assets/
 │  ├─web_logo.png 
 |
@@ -36,6 +35,7 @@ SAP-SULTANS_056/
 ├─main.js
 ├─navbar.css
 ├─navbar.js
+</pre>
 
 ## Video Walkthrough of the project
 Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
@@ -51,7 +51,7 @@ List out the key features of your application.
 - Performance Optimization : Optimize the platform’s performance using debouncing for search inputs, throttling for scroll events, and loaders for enhanced user experience.
 
 ## design decisions or Screenshots
-    <img src="./Assets/login.JPG">
+      <img src="../SAP-Sultans_056/Assets/login.JPG" alt="Login Page" />
 
 ## Installation & Getting started
 ```bash
