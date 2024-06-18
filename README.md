@@ -1,17 +1,16 @@
 # SAP-Sultans_056
-
 # Project Title
     beet-pulse-music
 
 ## Introduction
-    Embarking on a mission to revolutionize the music streaming landscape, our team has set out to develop a cutting-edge, open-source music streaming application. Leveraging our collective passion for music and technology, we aim to deliver a personalized and immersive listening experience that rivals industry giants like YouTube and Spotify. Our platform will prioritize user engagement through innovative features such as dynamic search, customizable playlists, and a detailed music player, all while ensuring robust performance and user-friendly design. With a strong focus on state management, data persistence, and responsive UI, we are excited to showcase our skills and create a unique space for music lovers worldwide.
-
+   <pre>Embarking on a mission to revolutionize the music streaming landscape, our team has set out to develop a cutting-edge, open-source music streaming application. Leveraging our collective passion for music and technology, we aim to deliver a personalized and immersive listening experience that rivals industry giants like YouTube and Spotify. Our platform will prioritize user engagement through innovative features such as dynamic search, customizable playlists, and a detailed music player, all while ensuring robust performance and user-friendly design. With a strong focus on state management, data persistence, and responsive UI, we are excited to showcase our skills and create a unique space for music lovers worldwide.</pre>
+ 
 ## Project Type
 Frontend 
 
 ## Deplolyed App
-Frontend: https://www.netlify.com/
-Backend: https://render.com/
+Frontend: https://www.netlify.com/ </br>
+Backend: https://render.com/ </br>
 Database: [Json server](https://mock-api-fxby.onrender.com/)
 
 ## Directory Structure
