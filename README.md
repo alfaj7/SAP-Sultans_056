@@ -3,7 +3,11 @@
     beet-pulse-music
 
 ## Introduction
-   <pre>Embarking on a mission to revolutionize the music streaming landscape, our team has set out to develop a cutting-edge, open-source music streaming application. Leveraging our collective passion for music and technology, we aim to deliver a personalized and immersive listening experience that rivals industry giants like YouTube and Spotify. Our platform will prioritize user engagement through innovative features such as dynamic search, customizable playlists, and a detailed music player, all while ensuring robust performance and user-friendly design. With a strong focus on state management, data persistence, and responsive UI, we are excited to showcase our skills and create a unique space for music lovers worldwide.</pre>
+Embarking on a mission to revolutionize the music streaming landscape, our team has set out to develop a cutting-edge, open-source</br>
+music streaming application. Leveraging our collective passion for music and technology, we aim to deliver a personalized and immersive </br>listening experience that rivals industry giants like YouTube and Spotify. Our platform will prioritize user engagement through 
+</br>innovative features such as dynamic search, customizable playlists, and a detailed music player, all while ensuring robust 
+</br>performance and user-friendly design. With a strong focus on state management, data persistence, and responsive UI, we are excited </br>to showcase our skills and create a unique space for music lovers worldwide.
+
  
 ## Project Type
 Frontend 
@@ -50,7 +54,7 @@ List out the key features of your application.
 - Performance Optimization : Optimize the platform’s performance using debouncing for search inputs, throttling for scroll events, and loaders for enhanced user experience.
 
 ## design decisions or Screenshots
-      <img src="../SAP-Sultans_056/Assets/login.JPG" alt="Login Page" />
+     ![Login Page](./Assets/login.JPG)
 
 ## Installation & Getting started
 ```bash
