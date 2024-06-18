@@ -13,7 +13,29 @@ body {
 }
 
 /* Main container */
-
+.abcd{
+    box-shadow: 0 0 10px 5px red;
+    /* outline-style: solid; Ensure outline style is solid */
+    animation: outlineAnimation  0.5s infinite;
+}
+@keyframes outlineAnimation {
+    /* 0% {
+        outline:5px dotted rgb(111, 77, 77);
+    }
+    50% {
+        outline:10px dotted rgb(7, 202, 82);
+    }
+    100% {
+        outline:5px dotted rgb(191, 255, 0);
+    } */
+    /* 0% { box-shadow: 0 0 20px 10px rgb(242, 255, 0); }
+    50% { box-shadow: 0 0 20px 10px rgb(255, 149, 0); }
+    100% { box-shadow: 0 0 20px 10px rgb(234, 255, 0); } */
+    0% { box-shadow: 0 0 20px 10px rgb(226, 226, 226); }
+    50% { box-shadow: 0 0 20px 10px rgb(255, 149, 0); }
+    100% { box-shadow: 0 0 20px 10px rgb(247, 247, 247); }
+    
+  }
 #Rcontainer{
     width: 100%;
     margin: 0px auto;
@@ -21,7 +43,8 @@ body {
     margin-top: 1.5rem;
     padding: 10px;
     border-radius: 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 20% 78%;
     justify-content: center;
     box-sizing: border-box;
     gap: 20px;
@@ -33,15 +56,17 @@ body {
 .music-list {
     /* margin-top: 3rem; */
     padding: 1rem;
-    width: 1230px;
+    /* width: 1230px; */
+    display: grid;
+grid-template-columns: repeat(3,1fr);
     height: 100vh;
     overflow-y: scroll;
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
     gap: 2rem;
     /* margin-left: 25rem; */
     border-radius: 1rem;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     background-color: #2a0845;
 
   
@@ -57,7 +82,7 @@ body {
     flex-direction: column;
     cursor: pointer;
     transition: transform 0.3s ease;
-    width: 300px;
+    /* width: 300px; */
     color: #fff;
     
 }
@@ -192,7 +217,7 @@ audio {
 /* Ritik Code Start */
 
 .sidebar{
-    width: 420px;
+    /* width: 420px; */
     border: 1px solid;
     border-radius: 10px;
     /* padding: 20px; */
@@ -296,6 +321,21 @@ audio {
     gap: 80px;
     background: linear-gradient(black, blueviolet);
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: 0.5s;
+    
+    background-size: 200% auto;
+}
+
+#playAndPauseBtn:hover{
+    color: #fff;
+    text-decoration: none;
+    background-position: right center;
+    background-image: linear-gradient(
+      to right,
+      #6441a5 0%,
+      #2a0845 51%,
+      #6441a5 100%
+    );
 }
 
 #playAndPauseBtn>button{
@@ -336,3 +376,55 @@ audio {
     font-size: large;
 }
 /* Ritik code end */
+
+@media screen and (max-width: 600px) {
+    .music-list {
+        /* margin-top: 3rem; */
+        padding: 1rem;
+        /* width: 1230px; */
+        display: grid;
+        grid-template-columns: 100% ;
+
+}
+#Rcontainer{
+    width: 100%;
+  
+    grid-template-columns: 100%;
+    padding: 0px;
+}
+.song{
+    width: 100%;
+    height: 100%;
+    /* height: 400px1; */
+    padding: 0px;
+}
+.song img {
+    width: 100%;
+     height: 350px;
+    /* border-radius: 5px; */
+    /* object-fit: contain; */
+    
+}
+
+.song-info h3 {
+    margin: 0;
+}
+.song-info {
+    padding: 20px 0;
+}
+
+#playAndPauseBtn {
+width: 100%;
+}
+#RsearchInput{
+    width: 100%;
+    border-radius: 4px;
+}
+#RCategorySearch{
+    border-radius: 4px;
+}
+
+#searchAndSelectBar {
+    height: auto;
+}
+}

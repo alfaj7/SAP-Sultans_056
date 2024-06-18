@@ -1,6 +1,76 @@
 var global_data;
 let baseurl = `https://mock-api-fxby.onrender.com`;
 
+
+
+// search function
+
+
+let input_value = document.getElementById("");
+
+// search_form and search song input
+
+let search_form = document.getElementById("search_form");
+
+let user_value = document.getElementById("user_value");
+
+// fetchig the search result and applying debouncing
+
+let timeOut;
+
+async function fetch_data(search) {
+  try {
+    let res = await fetch(
+      `https://mock-api-fxby.onrender.com/users?username_like=${search}`
+    );
+
+    let search_data = await res.json();
+
+    return search_data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// validting the search result and applying condition
+
+async function validation() {
+  let value = user_value.value;
+  if (value.length < 3) {
+    alert("plaese enter atleast three character");
+    return;
+  }
+
+  let validated_data = await fetch_data(value);
+  show_data(validated_data);
+  console.log(validated_data);
+}
+
+// applying Debouncing
+
+function Debouncing(operation, delay) {
+  if (timeOut) {
+    clearTimeout(timeOut);
+  }
+  timeOut = setTimeout(() => {
+    operation();
+  }, delay);
+}
+
+// applying event listner on searvh input
+
+user_value.addEventListener("input", function () {
+
+
+  Debouncing(validation, 2000);
+});
+
+
+
+
+
+
+
 console.log(global_data);
 
 // Getting Number of Products

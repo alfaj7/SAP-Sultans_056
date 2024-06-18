@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <link id="favicon" rel="icon" type="image/x-icon" href="./Assets/Web_Logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./navbar.css" />
     <link rel="stylesheet" href="./index.css" />
@@ -9,7 +11,7 @@
       src="https://kit.fontawesome.com/7a4d6432b5.js"
       crossorigin="anonymous"
     ></script>
-    <title>Home</title>
+    <title>Beatpulse</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -39,7 +41,7 @@
         <div class="player-content">
             <button id="close-button"><i class="fas fa-times"></i></button>
             <div class="song-box">
-                <img src="" id="popup-bg" alt="Song Image">
+                <img class="animation_borderr" src="" id="popup-bg" alt="Song Image">
                 <div class="song-details">
                     <h3 id="song-name"></h3>
                     <p id="song-details"></p>
@@ -53,7 +55,7 @@
         </div>
     </div>
     </div>
-    <div id="playAndPauseBtn">
+    <div id="playAndPauseBtn" class="mainaudio">
       <button id="loopBtn"><i class="fa-solid fa-2x fa-repeat"></i></button>
       <button id="PrevBtn">
         <i class="fa-solid fa-2x fa-backward-step"></i>

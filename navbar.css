@@ -38,13 +38,36 @@ button {
   flex-grow: 1;
   justify-content: center;
 }
-.logo {
-  font-size: 25px;
-  font-family: cursive;
-  color: #ff9c5a;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.logo{
+  box-shadow: 0 0 10px 5px red;
+  border-radius: 9999px;
+  width: 60px;
+  overflow: hidden;
+  height: 60px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  /* outline-style: solid; Ensure outline style is solid */
+  animation: outlineAnimation  0.5s infinite;
+}
+@keyframes outlineAnimation {
+  /* 0% {
+      outline:5px dotted rgb(111, 77, 77);
+  }
+  50% {
+      outline:10px dotted rgb(7, 202, 82);
+  }
+  100% {
+      outline:5px dotted rgb(191, 255, 0);
+  } */
+  /* 0% { box-shadow: 0 0 20px 10px rgb(242, 255, 0); }
+  50% { box-shadow: 0 0 20px 10px rgb(255, 149, 0); }
+  100% { box-shadow: 0 0 20px 10px rgb(234, 255, 0); } */
+  0% { box-shadow: 0 0 20px 10px rgb(226, 226, 226); }
+  50% { box-shadow: 0 0 20px 10px rgb(255, 149, 0); }
+  100% { box-shadow: 0 0 20px 10px rgb(247, 247, 247); }
+  
 }
 .nav-menu a {
   padding: 10px 20px;

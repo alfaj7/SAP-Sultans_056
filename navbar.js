@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let loopBtn = document.querySelector("#loopBtn");
   let RandomBtn = document.querySelector("#RandomBtn");
   let playAndPauseBtn = document.querySelector("#playAndPauseBtn")
+  let animation_borderr = document.querySelector(".animation_borderr")
+  let mainaudio = document.querySelector(".mainaudio")
   let playAndPauseBtn2 = document.querySelector("#playAndPauseBtn2")
 
 
@@ -139,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Play selected song and update player UI
   const playSong = (song) => {
+    
       popupBg.src = song.songposterurl;
       songName.textContent = song.name;
       songDetails.textContent = `${song.artist} - ${song.Duration}`;
@@ -147,6 +150,15 @@ document.addEventListener("DOMContentLoaded", () => {
       playerPopup.style.display = 'flex';
       playerPopup.style.zIndex = '100';
       musicList.style.display = 'none';
+
+      audioPlayer.addEventListener('play', () => {
+        animation_borderr.classList.add("abcd");
+      });
+    
+      // Event listener to remove class when audio is paused
+      audioPlayer.addEventListener('pause', () => {
+        animation_borderr.classList.remove("abcd");
+      })
   };
 
   // Update background image
@@ -161,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
   closeButton.addEventListener('click', () => {
       playerPopup.style.display = 'none';
       playerPopup.style.zIndex = '-1';
-      musicList.style.display = 'flex';
+      musicList.style.display = 'grid';
       sidebar.style.display = 'flex';
       playAndPauseBtn.style.display='flex'
       audioPlayer.pause();
@@ -175,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentSongIndex = (currentSongIndex + 1) % songs.length;
       playSong(songs[currentSongIndex]);
       updateBackground(songs[currentSongIndex].songposterurl);
+      
   });
 
   // Play previous song
@@ -494,20 +507,26 @@ const initializePlayer = async () => {
   PrevBtn.addEventListener("click", () => {
       player1.previousSong();  // Switch to the previous song and play it
       PlayAndpause.innerHTML = `<i class="fa-solid fa-2x fa-pause"></i>`;
+      mainaudio.classList.add("abcd");
+
   });
 
   NextBtn.addEventListener("click", () => {
       player1.nextSong();  // Switch to the next song and play it
       PlayAndpause.innerHTML = `<i class="fa-solid fa-2x fa-pause"></i>`;
+      mainaudio.classList.add("abcd");
+
   });
 
   PlayAndpause.addEventListener("click", () => {
       if (player1.audioElement.paused) {
           player1.play();  // Play if currently paused
           PlayAndpause.innerHTML = `<i class="fa-solid fa-2x fa-pause"></i>`;
+        mainaudio.classList.add("abcd")
       } else {
           player1.pause();  // Pause if currently playing
           PlayAndpause.innerHTML = `<i class="fa-solid fa-2x fa-play"></i>`;
+          mainaudio.classList.remove("abcd")
       }
   });
 
@@ -520,9 +539,13 @@ const initializePlayer = async () => {
        if(player1.isRandom)
        {
           RandomBtn.style.color='black';
+        mainaudio.classList.add("abcd");
+
        }
        else{
         RandomBtn.style.color='white';
+        mainaudio.classList.remove("abcd");
+
        }
 
   });
