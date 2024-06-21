@@ -55,7 +55,7 @@ List out the key features of your application.
 
 # design decisions or Screenshots
 
-     ![Login Page](./Assets/Web_Logo.png)
+     ![Screenshot 1](./Assets/Web_Logo.png)
    
 
 ## Installation & Getting started
