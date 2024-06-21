@@ -54,7 +54,7 @@ List out the key features of your application.
 - Performance Optimization : Optimize the platform’s performance using debouncing for search inputs, throttling for scroll events, and loaders for enhanced user experience.
 
 ## design decisions or Screenshots
-     ![Login Page](/Assets/Logo.jpg)
+     ![Login Page](./Assets/Login.JPG)
 
 ## Installation & Getting started
 ```bash
