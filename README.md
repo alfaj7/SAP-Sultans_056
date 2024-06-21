@@ -53,7 +53,8 @@ List out the key features of your application.
 - Detailed Music Player : Develop a detailed music player with play, pause, next, previous, and loop functionalities, using circular linked lists for looping playlists.
 - Performance Optimization : Optimize the platform’s performance using debouncing for search inputs, throttling for scroll events, and loaders for enhanced user experience.
 
-## design decisions or Screenshots
+# design decisions or Screenshots
+
      ![Login Page](./Assets/Web_Logo.png)
    
 
