@@ -55,7 +55,7 @@ List out the key features of your application.
 
 # design decisions or Screenshots
 
-     ![Screenshot 1](https://github.com/alfaj7/SAP-Sultans_056/blob/main/Assets/one.png)
+     ![Screenshot 1](./Assets/one.png)
    
 
 ## Installation & Getting started
