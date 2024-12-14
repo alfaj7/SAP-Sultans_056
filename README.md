@@ -13,7 +13,7 @@ music streaming application. Leveraging our collective passion for music and tec
 Frontend 
 
 ## Deplolyed App
-Frontend: https://www.netlify.com/ </br>
+Frontend:https://beet-pulse-music.netlify.app/ </br>
 Backend: https://render.com/ </br>
 Database: [Json server](https://mock-api-fxby.onrender.com/)
 
